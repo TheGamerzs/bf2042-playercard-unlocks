@@ -17,10 +17,9 @@ function TagTemplate(props: { tagData: TagData }) {
             <ul>
               {tagData.tasks.map((task: any) => {
                 return (
-                  <li key={task.id}>
-                    <h4>{task.name}</h4>
+                  <li key={task.description}>
                     <p>
-                      {task.completed}/{task.required}
+                      {task.completed}/{task.required} - {task.description}
                     </p>
                   </li>
                 );

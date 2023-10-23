@@ -2,6 +2,7 @@ type Task = {
   description: string;
   completed: number;
   required: number;
+  canCompute?: boolean;
 };
 
 type TagData = {
