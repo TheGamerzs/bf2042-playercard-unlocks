@@ -19,6 +19,11 @@ function TagTemplate(props: { tagData: TagData }) {
                 return (
                   <li key={task.description}>
                     <p>
+                      {task.completed >= task.required ? (
+                        <span>&#10003;</span>
+                      ) : (
+                        ""
+                      )}
                       {task.completed}/{task.required} - {task.description}
                     </p>
                   </li>
