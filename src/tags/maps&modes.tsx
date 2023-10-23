@@ -1,5 +1,13 @@
 import TagTemplate from "./TagTemplate";
 
+function getGameMode(gamemodes: Gamemode[], mode: string) {
+  return gamemodes.find((gamemode: Gamemode) => gamemode.gamemodeName === mode);
+}
+
+function getModeWins(gamemodes: Gamemode[], mode: string) {
+  return getGameMode(gamemodes, mode)?.wins || 0;
+}
+
 function FlagSmasher({ data }: { data: apiData }) {
   const ObjectivesCaptured =
     data.gamemodes.find((mode: Gamemode) => mode.gamemodeName === "Conquest")
@@ -31,9 +39,7 @@ function FlagSmasher({ data }: { data: apiData }) {
 
 function GroundBreaker({ data }: { data: apiData }) {
   const ObjectivesCaptured =
-    data.gamemodes.find(
-      (mode: Gamemode) => mode.gamemodeName === "Breakthrough"
-    )?.objectivesCaptured || 0;
+    getGameMode(data.gamemodes, "Breakthrough")?.objectivesCaptured || 0;
   const ObjectivesCapturedOneRound = 0;
 
   const tasks: Task[] = [
@@ -46,6 +52,7 @@ function GroundBreaker({ data }: { data: apiData }) {
       description: "4 Objective Captured in one round of Breakthrough",
       completed: ObjectivesCapturedOneRound,
       required: 4,
+      canCompute: false,
     },
   ];
 
@@ -85,9 +92,47 @@ function VintageWarrior({ data }: { data: apiData }) {
 }
 
 function CombatConnoisseur({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const breakthroughWins =
+      getModeWins(data.gamemodes, "Breakthrough") +
+      getModeWins(data.gamemodes, "Breakthrough Large"),
+    conquestWins =
+      getModeWins(data.gamemodes, "Conquest") +
+      getModeWins(data.gamemodes, "Conquest Large"),
+    hazardZoneWins =
+      getModeWins(data.gamemodes, "Hazard Zone") +
+      getModeWins(data.gamemodes, "Hazard Zone Large");
+
+  const tasks: Task[] = [
+    {
+      description: "10 Rounds won of Breakthrough",
+      completed: breakthroughWins,
+      required: 10,
+    },
+    {
+      description: "10 Rounds won of Hazard Zone",
+      completed: hazardZoneWins,
+      required: 10,
+    },
+    {
+      description: "10 Rounds won of Conquest",
+      completed: conquestWins,
+      required: 10,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Combat Connoisseur",
+        image:
+          "https://img.game8.co/3451384/4d81661abb8756f6ebe131ff006c9ab8.png/show",
+        tasks,
+      }}
+    />
+  );
 }
 
+//Cannot compute
 function DataMiner({ data }: { data: apiData }) {
   return <p>Not implemented yet.</p>;
 }
@@ -125,15 +170,15 @@ function FuseRunner({ data }: { data: apiData }) {
     />
   );
 }
-
+//Cannot compute
 function RulerOfTheZone({ data }: { data: apiData }) {
   return <p>Not implemented yet.</p>;
 }
-
+//Cannot compute
 function EarlyBird({ data }: { data: apiData }) {
   return <p>Not implemented yet.</p>;
 }
-
+//Cannot compute
 function EscapeArtist({ data }: { data: apiData }) {
   return <p>Not implemented yet.</p>;
 }
@@ -163,7 +208,7 @@ function UltimateSurvivor({ data }: { data: apiData }) {
     />
   );
 }
-
+//Cannot compute
 function ArchitectOfWar({ data }: { data: apiData }) {
   return <p>Not implemented yet.</p>;
 }
