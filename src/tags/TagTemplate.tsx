@@ -15,7 +15,7 @@ function TagTemplate(props: { tagData: TagData }) {
           <div>
             <h3>{tagData.name}</h3>
             <ul>
-              {tagData.tasks.map((task: any) => {
+              {tagData.tasks.map((task: Task) => {
                 return (
                   <li key={task.description}>
                     <p>
@@ -25,6 +25,11 @@ function TagTemplate(props: { tagData: TagData }) {
                         ""
                       )}
                       {task.completed}/{task.required} - {task.description}
+                      {task.canCompute === false ? (
+                        <span> - (Cannot compute)</span>
+                      ) : (
+                        ""
+                      )}
                     </p>
                   </li>
                 );
