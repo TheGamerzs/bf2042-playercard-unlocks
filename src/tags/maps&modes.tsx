@@ -1,12 +1,6 @@
 import TagTemplate from "./TagTemplate";
 
-function getGameMode(gamemodes: Gamemode[], mode: string) {
-  return gamemodes.find((gamemode: Gamemode) => gamemode.gamemodeName === mode);
-}
-
-function getModeWins(gamemodes: Gamemode[], mode: string) {
-  return getGameMode(gamemodes, mode)?.wins || 0;
-}
+import { getGameMode, getGameModeWins } from "../util";
 
 function FlagSmasher({ data }: { data: apiData }) {
   const ObjectivesCaptured =
@@ -93,14 +87,14 @@ function VintageWarrior({ data }: { data: apiData }) {
 
 function CombatConnoisseur({ data }: { data: apiData }) {
   const breakthroughWins =
-      getModeWins(data.gamemodes, "Breakthrough") +
-      getModeWins(data.gamemodes, "Breakthrough Large"),
+      getGameModeWins(data.gamemodes, "Breakthrough") +
+      getGameModeWins(data.gamemodes, "Breakthrough Large"),
     conquestWins =
-      getModeWins(data.gamemodes, "Conquest") +
-      getModeWins(data.gamemodes, "Conquest Large"),
+      getGameModeWins(data.gamemodes, "Conquest") +
+      getGameModeWins(data.gamemodes, "Conquest Large"),
     hazardZoneWins =
-      getModeWins(data.gamemodes, "Hazard Zone") +
-      getModeWins(data.gamemodes, "Hazard Zone Large");
+      getGameModeWins(data.gamemodes, "Hazard Zone") +
+      getGameModeWins(data.gamemodes, "Hazard Zone Large");
 
   const tasks: Task[] = [
     {
