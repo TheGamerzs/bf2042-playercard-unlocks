@@ -30,7 +30,7 @@ function App() {
   function PlayerCards_Badges() {
     return (
       <>
-        <p>Not implemented yet.</p>
+        <p>Badges - Not implemented yet.</p>
       </>
     );
   }
@@ -42,7 +42,7 @@ function App() {
   function PlayerCards_Images() {
     return (
       <>
-        <p>Not implemented yet.</p>
+        <p>Images - Not implemented yet.</p>
       </>
     );
   }
