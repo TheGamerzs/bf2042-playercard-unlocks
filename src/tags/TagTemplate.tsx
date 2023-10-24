@@ -7,6 +7,33 @@ function TagTemplate(props: { tagData: TagData }) {
     setTagData(props.tagData);
   }, [props]);
 
+  function rTask(Task: Task) {
+    const isCompleted = Task.completed >= Task.required;
+    const cannotCompute = Task.canCompute ? "" : " - Cannot compute";
+
+    return (
+      <li
+        key={Task.description}
+        style={{
+          listStyle: "none",
+          textDecoration: isCompleted ? "line-through" : "none",
+
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        {isCompleted ? (
+          <input type="checkbox" checked disabled />
+        ) : (
+          <input type="checkbox" disabled />
+        )}
+        <p>
+          {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
+        </p>
+      </li>
+    );
+  }
+
   return (
     <div>
       {tagData ? (
@@ -16,23 +43,7 @@ function TagTemplate(props: { tagData: TagData }) {
             <h3>{tagData.name}</h3>
             <ul>
               {tagData.tasks.map((task: Task) => {
-                return (
-                  <li key={task.description}>
-                    <p>
-                      {task.completed >= task.required ? (
-                        <span>&#10003;</span>
-                      ) : (
-                        ""
-                      )}
-                      {task.completed}/{task.required} - {task.description}
-                      {task.canCompute === false ? (
-                        <span> - (Cannot compute)</span>
-                      ) : (
-                        ""
-                      )}
-                    </p>
-                  </li>
-                );
+                return rTask(task);
               })}
             </ul>
           </div>
