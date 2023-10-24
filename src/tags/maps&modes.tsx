@@ -16,6 +16,7 @@ function FlagSmasher({ data }: { data: apiData }) {
       description: "5 Objectives Captured or Destroyed",
       completed: ObjectivesCaptured + ObjectivesDestroyed,
       required: 5,
+      canCompute: true,
     },
   ];
 
@@ -41,6 +42,7 @@ function GroundBreaker({ data }: { data: apiData }) {
       description: "25 Objectives Captured in Breakthrough",
       completed: ObjectivesCaptured,
       required: 25,
+      canCompute: true,
     },
     {
       description: "4 Objective Captured in one round of Breakthrough",
@@ -70,6 +72,7 @@ function VintageWarrior({ data }: { data: apiData }) {
       description: "1 Round won for each Battlefield Classic Map",
       completed: classicMapsPlayed,
       required: 7,
+      canCompute: true,
     },
   ];
 
@@ -101,16 +104,19 @@ function CombatConnoisseur({ data }: { data: apiData }) {
       description: "10 Rounds won of Breakthrough",
       completed: breakthroughWins,
       required: 10,
+      canCompute: true,
     },
     {
       description: "10 Rounds won of Hazard Zone",
       completed: hazardZoneWins,
       required: 10,
+      canCompute: true,
     },
     {
       description: "10 Rounds won of Conquest",
       completed: conquestWins,
       required: 10,
+      canCompute: true,
     },
   ];
 
@@ -145,11 +151,13 @@ function FuseRunner({ data }: { data: apiData }) {
       description: "50 Objectives Armed in Rush",
       completed: ObjectivesArmed,
       required: 50,
+      canCompute: true,
     },
     {
       description: "50 Objectives Disarmed in Rush",
       completed: ObjectivesDisarmed,
       required: 50,
+      canCompute: true,
     },
   ];
 
@@ -188,6 +196,7 @@ function UltimateSurvivor({ data }: { data: apiData }) {
       description: "75 Rounds played",
       completed: played75Rounds,
       required: 75,
+      canCompute: true,
     },
   ];
 
@@ -215,6 +224,7 @@ function SeasonedVet({ data }: { data: apiData }) {
       description: "1 Round won for each Battlefield 2042 Map",
       completed: playedMaps,
       required: data.maps.length,
+      canCompute: true,
     },
   ];
 

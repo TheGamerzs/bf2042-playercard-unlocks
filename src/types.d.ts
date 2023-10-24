@@ -2,7 +2,7 @@ type Task = {
   description: string;
   completed: number;
   required: number;
-  canCompute?: boolean;
+  canCompute: boolean;
 };
 
 type TagData = {
