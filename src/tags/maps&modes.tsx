@@ -132,9 +132,26 @@ function CombatConnoisseur({ data }: { data: apiData }) {
   );
 }
 
-//Cannot compute
 function DataMiner({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const tasks: Task[] = [
+    {
+      description: "5 Data Drives picked up in Hazard Zone",
+      completed: 0,
+      required: 5,
+      canCompute: false,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Data Miner",
+        image:
+          "https://img.game8.co/3451367/fb765d7d0b9a022971efc4775545fed9.png/show",
+        tasks,
+      }}
+    />
+  );
 }
 
 function FuseRunner({ data }: { data: apiData }) {
@@ -172,17 +189,83 @@ function FuseRunner({ data }: { data: apiData }) {
     />
   );
 }
-//Cannot compute
+
 function RulerOfTheZone({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const tasks: Task[] = [
+    {
+      description:
+        "1 Extraction Streak 10 Reached as any Specialist in Hazard Zone",
+      completed: 0,
+      required: 1,
+      canCompute: false,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Ruler of the Zone",
+        image:
+          "https://img.game8.co/3451382/21554000eac5381311c2f7eba59a1a76.png/show",
+        tasks,
+      }}
+    />
+  );
 }
-//Cannot compute
+
 function EarlyBird({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const successfullExtractions =
+    getGameModeWins(data.gamemodes, "Hazard Zone") +
+    getGameModeWins(data.gamemodes, "Hazard Zone Large");
+
+  const tasks: Task[] = [
+    {
+      description: "10 Successful extractions in Hazard Zone",
+      completed: successfullExtractions,
+      required: 10,
+      canCompute: true,
+    },
+    {
+      description: "50 Data Drives extracted in Hazard Zone",
+      completed: 0,
+      required: 50,
+      canCompute: false,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Early Bird",
+        image:
+          "https://img.game8.co/3451370/07edcee7659fc5c193e82390ecc75ced.png/show",
+        tasks,
+      }}
+    />
+  );
 }
-//Cannot compute
+
 function EscapeArtist({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const tasks: Task[] = [
+    {
+      description:
+        "1 Successful extract in Hazard Zone without anyone in the squad having died",
+      completed: 0,
+      required: 1,
+      canCompute: false,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Escape Artist",
+        image:
+          "https://img.game8.co/3451376/460f2e2dac43f0fe01154d7859c4e9cb.png/show",
+        tasks,
+      }}
+    />
+  );
 }
 
 function UltimateSurvivor({ data }: { data: apiData }) {
@@ -211,9 +294,33 @@ function UltimateSurvivor({ data }: { data: apiData }) {
     />
   );
 }
-//Cannot compute
+
 function ArchitectOfWar({ data }: { data: apiData }) {
-  return <p>Not implemented yet.</p>;
+  const tasks: Task[] = [
+    {
+      description: "40 Objectives defended in one round of Conquest",
+      completed: 0,
+      required: 40,
+      canCompute: false,
+    },
+    {
+      description: "10 Objectives Captured in one round of Conquest",
+      completed: 0,
+      required: 10,
+      canCompute: false,
+    },
+  ];
+
+  return (
+    <TagTemplate
+      tagData={{
+        name: "Architect of War",
+        image:
+          "https://img.game8.co/3451363/e0f05754864fb41c13b86f0d0c3b3a84.png/show",
+        tasks,
+      }}
+    />
+  );
 }
 
 function SeasonedVet({ data }: { data: apiData }) {
