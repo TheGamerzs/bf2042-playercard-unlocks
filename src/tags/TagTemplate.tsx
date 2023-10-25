@@ -22,11 +22,8 @@ function TagTemplate(props: { tagData: TagData }) {
           flexDirection: "row",
         }}
       >
-        {isCompleted ? (
-          <input type="checkbox" checked disabled />
-        ) : (
-          <input type="checkbox" disabled />
-        )}
+        <input type="checkbox" checked={isCompleted} />
+
         <p>
           {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
         </p>
