@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import "./App.css";
 
-import mapsModes from "./tags/maps&modes";
+import * as mapsModes from "./tags/maps&modes";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -38,7 +38,8 @@ function App() {
   function PlayerCardsTags() {
     return (
       <>
-        <h2>Maps & Modes</h2>
+        <h2>Tags</h2>
+        <h3>Maps & Modes</h3>
         {mapsModes.renderAll(playerData)}
       </>
     );

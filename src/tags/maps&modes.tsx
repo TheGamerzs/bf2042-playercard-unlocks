@@ -2,7 +2,7 @@ import TagTemplate from "./TagTemplate";
 
 import { getGameMode, getGameModeWins } from "../util";
 
-function FlagSmasher({ data }: { data: apiData }) {
+export function FlagSmasher({ data }: { data: apiData }) {
   const ObjectivesCaptured =
     data.gamemodes.find((mode: Gamemode) => mode.gamemodeName === "Conquest")
       ?.objectivesCaptured || 0;
@@ -32,7 +32,7 @@ function FlagSmasher({ data }: { data: apiData }) {
   );
 }
 
-function GroundBreaker({ data }: { data: apiData }) {
+export function GroundBreaker({ data }: { data: apiData }) {
   const ObjectivesCaptured =
     getGameMode(data.gamemodes, "Breakthrough")?.objectivesCaptured || 0;
   const ObjectivesCapturedOneRound = 0;
@@ -64,7 +64,7 @@ function GroundBreaker({ data }: { data: apiData }) {
   );
 }
 
-function VintageWarrior({ data }: { data: apiData }) {
+export function VintageWarrior({ data }: { data: apiData }) {
   const classicMapsPlayed = 0;
 
   const tasks: Task[] = [
@@ -88,7 +88,7 @@ function VintageWarrior({ data }: { data: apiData }) {
   );
 }
 
-function CombatConnoisseur({ data }: { data: apiData }) {
+export function CombatConnoisseur({ data }: { data: apiData }) {
   const breakthroughWins =
       getGameModeWins(data.gamemodes, "Breakthrough") +
       getGameModeWins(data.gamemodes, "Breakthrough Large"),
@@ -132,7 +132,7 @@ function CombatConnoisseur({ data }: { data: apiData }) {
   );
 }
 
-function DataMiner({ data }: { data: apiData }) {
+export function DataMiner({ data }: { data: apiData }) {
   const tasks: Task[] = [
     {
       description: "5 Data Drives picked up in Hazard Zone",
@@ -154,7 +154,7 @@ function DataMiner({ data }: { data: apiData }) {
   );
 }
 
-function FuseRunner({ data }: { data: apiData }) {
+export function FuseRunner({ data }: { data: apiData }) {
   const ObjectivesArmed =
     data.gamemodes.find((mode: Gamemode) => mode.gamemodeName === "Rush")
       ?.objectivesArmed || 0;
@@ -190,7 +190,7 @@ function FuseRunner({ data }: { data: apiData }) {
   );
 }
 
-function RulerOfTheZone({ data }: { data: apiData }) {
+export function RulerOfTheZone({ data }: { data: apiData }) {
   const tasks: Task[] = [
     {
       description:
@@ -213,7 +213,7 @@ function RulerOfTheZone({ data }: { data: apiData }) {
   );
 }
 
-function EarlyBird({ data }: { data: apiData }) {
+export function EarlyBird({ data }: { data: apiData }) {
   const successfullExtractions =
     getGameModeWins(data.gamemodes, "Hazard Zone") +
     getGameModeWins(data.gamemodes, "Hazard Zone Large");
@@ -245,7 +245,7 @@ function EarlyBird({ data }: { data: apiData }) {
   );
 }
 
-function EscapeArtist({ data }: { data: apiData }) {
+export function EscapeArtist({ data }: { data: apiData }) {
   const tasks: Task[] = [
     {
       description:
@@ -268,7 +268,7 @@ function EscapeArtist({ data }: { data: apiData }) {
   );
 }
 
-function UltimateSurvivor({ data }: { data: apiData }) {
+export function UltimateSurvivor({ data }: { data: apiData }) {
   const played75Rounds = data.maps.reduce(
     (acc: number, map: apiMap) => acc + map.matches,
     0
@@ -295,7 +295,7 @@ function UltimateSurvivor({ data }: { data: apiData }) {
   );
 }
 
-function ArchitectOfWar({ data }: { data: apiData }) {
+export function ArchitectOfWar({ data }: { data: apiData }) {
   const tasks: Task[] = [
     {
       description: "40 Objectives defended in one round of Conquest",
@@ -323,7 +323,7 @@ function ArchitectOfWar({ data }: { data: apiData }) {
   );
 }
 
-function SeasonedVet({ data }: { data: apiData }) {
+export function SeasonedVet({ data }: { data: apiData }) {
   const playedMaps = data.maps.filter((map: any) => map.matches > 0).length;
 
   const tasks: Task[] = [
@@ -347,7 +347,7 @@ function SeasonedVet({ data }: { data: apiData }) {
   );
 }
 
-function renderAll(data: apiData) {
+export function renderAll(data: apiData) {
   return (
     <>
       <FlagSmasher data={data} />
@@ -365,7 +365,3 @@ function renderAll(data: apiData) {
     </>
   );
 }
-
-export default {
-  renderAll,
-};
