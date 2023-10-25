@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import "./App.css";
 
 import mapsModes from "./tags/maps&modes";
@@ -27,7 +27,7 @@ function App() {
       .finally(() => setLoading(false));
   };
 
-  function PlayerCards_Badges() {
+  function PlayerCardsBadges() {
     return (
       <>
         <p>Badges - Not implemented yet.</p>
@@ -35,11 +35,16 @@ function App() {
     );
   }
 
-  function PlayerCards_Tags() {
-    return <>{mapsModes.renderAll(playerData)}</>;
+  function PlayerCardsTags() {
+    return (
+      <>
+        <h2>Maps & Modes</h2>
+        {mapsModes.renderAll(playerData)}
+      </>
+    );
   }
 
-  function PlayerCards_Images() {
+  function PlayerCardsImages() {
     return (
       <>
         <p>Images - Not implemented yet.</p>
@@ -74,9 +79,9 @@ function App() {
         <p>Loading...</p>
       ) : playerData ? (
         <>
-          <PlayerCards_Badges />
-          <PlayerCards_Tags />
-          <PlayerCards_Images />
+          <PlayerCardsBadges />
+          <PlayerCardsTags />
+          <PlayerCardsImages />
         </>
       ) : null}
     </>
