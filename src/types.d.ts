@@ -205,7 +205,7 @@ type apiData = {
   vehicleGroups: VehicleClass[];
   classes: Class[];
   gamemodes: Gamemode[];
-  maps: Map[];
+  maps: apiMap[];
   gadgets: Gadget[];
   bestClass: string;
   humanPrecentage: string;
