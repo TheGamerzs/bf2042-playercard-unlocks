@@ -55,7 +55,7 @@ function App() {
   }
 
   return (
-    <div className="App bg-black p-4 text-white">
+    <div className="bg-black p-4 text-white">
       <h1
         className="text-4xl text-center  font-bold"
         style={{ fontFamily: "Inter" }}
@@ -66,7 +66,7 @@ function App() {
         <label className="mt-4 ">Username:</label>
         <input
           type="text"
-          className="rounded border border-gray-400 text-black"
+          className="rounded border border-gray-400  text-black"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -86,7 +86,7 @@ function App() {
         </select>
         <button
           type="submit"
-          className="rounded border border-gray-400 mt-11 bg-teal-300 text-black p-2 w-1/2 mx-auto hover:bg-gray-"
+          className="hover:bg-teal-500 mx-auto mt-11 w-1/2 rounded border border-gray-400 bg-teal-300 p-2 text-black"
         >
           Get Stats
         </button>

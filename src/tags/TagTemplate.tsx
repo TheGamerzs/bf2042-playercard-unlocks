@@ -12,12 +12,19 @@ function TagTemplate(props: { tagData: TagData }) {
     const cannotCompute = Task.canCompute ? "" : " - Cannot compute";
 
     return (
-      <li key={Task.description} className="flex flex-row list-none">
-        <input type="checkbox" checked={isCompleted} className="mr-2" />
+      <li key={Task.description} className="list-none">
+        <div className="p-4">
+          <div className="w-40 rounded-full bg-teal-900 flex">
+            <div
+              className="h-2 rounded-full bg-green-300"
+              style={{ width: `${(Task.completed / Task.required) * 100}%` }}
+            ></div>
+          </div>
 
-        <p className="text-sm">
-          {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
-        </p>
+          <p className="text-sm">
+            {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
+          </p>
+        </div>
       </li>
     );
   }
@@ -25,11 +32,11 @@ function TagTemplate(props: { tagData: TagData }) {
   return (
     <div>
       {tagData ? (
-        <div className="flex flex-row m-6">
+        <div className="m-6 items-center inline-flex flex-row">
           <img
             src={tagData.image}
             alt={tagData.name}
-            className="rounded pr-4 w-16 h-16"
+            className="rounded pr-4"
           />
           <div className="flex flex-col">
             <h3 className="text-2xl">{tagData.name}</h3>
