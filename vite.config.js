@@ -10,6 +10,12 @@ export default ({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
+    server: {
+      open: true,
+    },
+    build: {
+      outDir: "build",
+    },
     plugins: [react()],
     define: {
       "import.meta.env.VITE_VERCEL_ANALYTICS_ID": JSON.stringify(
