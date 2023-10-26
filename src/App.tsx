@@ -14,6 +14,7 @@ function App() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!username) return;
     const baseURL =
       "https://api.gametools.network/bf2042/stats/?raw=false&format_values=true";
     const url = `${baseURL}&name=${username}&platform=${platform}&skip_battlelog=true`;
@@ -38,8 +39,8 @@ function App() {
   function PlayerCardsTags() {
     return (
       <>
-        <h2>Tags</h2>
-        <h3>Maps & Modes</h3>
+        <h2 className="text-2xl">Tags</h2>
+        <h3 className="text-xl underline">Maps & Modes</h3>
         {mapsModes.renderAll(playerData)}
       </>
     );
@@ -54,17 +55,27 @@ function App() {
   }
 
   return (
-    <>
-      <h1>BF2042 Player Card Tracker</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username:</label>
+    <div className="App bg-black p-4 text-white">
+      <h1
+        className="text-4xl text-center  font-bold"
+        style={{ fontFamily: "Inter" }}
+      >
+        BF2042 Player Card Tracker
+      </h1>
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <label className="mt-4 ">Username:</label>
         <input
           type="text"
+          className="rounded border border-gray-400 text-black"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Platform:</label>
-        <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
+        <label className="mt-4 ">Platform:</label>
+        <select
+          value={platform}
+          onChange={(e) => setPlatform(e.target.value)}
+          className="rounded border border-gray-400 text-black"
+        >
           <option value="pc">pc</option>
           <option value="xboxone">xboxone</option>
           <option value="ps4">ps4</option>
@@ -73,7 +84,10 @@ function App() {
           <option value="xbox">xbox</option>
           <option value="psn">psn</option>
         </select>
-        <button type="submit" className="btn btn-primary btn-block">
+        <button
+          type="submit"
+          className="rounded border border-gray-400 mt-11 bg-teal-300 text-black p-2 w-1/2 mx-auto hover:bg-gray-"
+        >
           Get Stats
         </button>
       </form>
@@ -87,7 +101,7 @@ function App() {
           <PlayerCardsImages />
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 

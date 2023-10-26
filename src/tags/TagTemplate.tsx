@@ -12,19 +12,10 @@ function TagTemplate(props: { tagData: TagData }) {
     const cannotCompute = Task.canCompute ? "" : " - Cannot compute";
 
     return (
-      <li
-        key={Task.description}
-        style={{
-          listStyle: "none",
-          textDecoration: isCompleted ? "line-through" : "none",
+      <li key={Task.description} className="flex flex-row list-none">
+        <input type="checkbox" checked={isCompleted} className="mr-2" />
 
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <input type="checkbox" checked={isCompleted} />
-
-        <p>
+        <p className="text-sm">
           {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
         </p>
       </li>
@@ -34,11 +25,15 @@ function TagTemplate(props: { tagData: TagData }) {
   return (
     <div>
       {tagData ? (
-        <div>
-          <img src={tagData.image} alt={tagData.name} />
-          <div>
-            <h3>{tagData.name}</h3>
-            <ul>
+        <div className="flex flex-row m-6">
+          <img
+            src={tagData.image}
+            alt={tagData.name}
+            className="rounded pr-4 w-16 h-16"
+          />
+          <div className="flex flex-col">
+            <h3 className="text-2xl">{tagData.name}</h3>
+            <ul className="flex flex-col">
               {tagData.tasks.map((task: Task) => {
                 return rTask(task);
               })}
