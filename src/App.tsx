@@ -96,6 +96,9 @@ function App() {
         <p>Loading...</p>
       ) : playerData ? (
         <>
+          <div className="flex flex-row items-center my-8 ml-2">
+            <div className="w-4 h-4 rounded bg-purple-900"></div>Cannot Compute
+          </div>
           <PlayerCardsBadges />
           <PlayerCardsTags />
           <PlayerCardsImages />

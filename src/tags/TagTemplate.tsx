@@ -13,7 +13,7 @@ function TagTemplate(props: { tagData: TagData }) {
         <div className="p-4">
           <div
             className={`w-40 rounded-full flex ${
-              Task.canCompute ? "bg-teal-900" : "bg-purple-300"
+              Task.canCompute ? "bg-teal-900" : "bg-purple-900"
             }`}
           >
             <div
