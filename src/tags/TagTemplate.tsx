@@ -8,13 +8,14 @@ function TagTemplate(props: { tagData: TagData }) {
   }, [props]);
 
   function rTask(Task: Task) {
-    const isCompleted = Task.completed >= Task.required;
-    const cannotCompute = Task.canCompute ? "" : " - Cannot compute";
-
     return (
       <li key={Task.description} className="list-none">
         <div className="p-4">
-          <div className="w-40 rounded-full bg-teal-900 flex">
+          <div
+            className={`w-40 rounded-full flex ${
+              Task.canCompute ? "bg-teal-900" : "bg-purple-300"
+            }`}
+          >
             <div
               className="h-2 rounded-full bg-green-300"
               style={{ width: `${(Task.completed / Task.required) * 100}%` }}
@@ -22,7 +23,7 @@ function TagTemplate(props: { tagData: TagData }) {
           </div>
 
           <p className="text-sm">
-            {`${Task.completed}/${Task.required} - ${Task.description} ${cannotCompute}`}
+            {`${Task.completed}/${Task.required} - ${Task.description}`}
           </p>
         </div>
       </li>
