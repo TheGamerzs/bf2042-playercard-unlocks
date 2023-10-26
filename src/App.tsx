@@ -73,7 +73,9 @@ function App() {
           <option value="xbox">xbox</option>
           <option value="psn">psn</option>
         </select>
-        <button type="submit">Get Stats</button>
+        <button type="submit" className="btn btn-primary btn-block">
+          Get Stats
+        </button>
       </form>
       {error ? <p>{JSON.stringify(error)}</p> : null}
       {loading ? (
