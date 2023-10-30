@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import {FormEvent, useState} from "react";
 import "./App.css";
 
 import * as mapsModes from "./tags/maps&modes";
@@ -56,10 +56,7 @@ function App() {
 
   return (
     <div className="bg-black p-4 text-white">
-      <h1
-        className="text-4xl text-center  font-bold"
-        style={{ fontFamily: "Inter" }}
-      >
+      <h1 className="text-center text-4xl font-bold" style={{fontFamily: "Inter"}}>
         BF2042 Player Card Tracker
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col">
@@ -86,7 +83,7 @@ function App() {
         </select>
         <button
           type="submit"
-          className="hover:bg-teal-500 mx-auto mt-11 w-1/2 rounded border border-gray-400 bg-teal-300 p-2 text-black"
+          className="mx-auto mt-11 w-1/2 rounded border border-gray-400 bg-teal-300 p-2 text-black hover:bg-teal-500"
         >
           Get Stats
         </button>
@@ -96,8 +93,8 @@ function App() {
         <p>Loading...</p>
       ) : playerData ? (
         <>
-          <div className="flex flex-row items-center my-8 ml-2">
-            <div className="w-4 h-4 rounded bg-purple-900"></div>Cannot Compute
+          <div className="my-8 ml-2 flex flex-row items-center">
+            <div className="h-4 w-4 rounded bg-purple-900"></div>Cannot Compute
           </div>
           <PlayerCardsBadges />
           <PlayerCardsTags />

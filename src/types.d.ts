@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 type Task = {
   description: string;
   completed: number;
@@ -372,7 +373,7 @@ type apiData = {
         objective: number;
         support: number;
       };
-    }
+    },
   ];
   seasons: {
     [key: string]: Season[];

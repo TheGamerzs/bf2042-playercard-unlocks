@@ -1,8 +1,8 @@
 import TagTemplate from "./TagTemplate";
 
-import { getGameMode, getGameModeWins } from "../util";
+import {getGameMode, getGameModeWins} from "../util";
 
-export function FlagSmasher({ data }: { data: apiData }) {
+export function FlagSmasher({data}: {data: apiData}) {
   const ObjectivesCaptured =
     data.gamemodes.find((mode: Gamemode) => mode.gamemodeName === "Conquest")
       ?.objectivesCaptured || 0;
@@ -24,15 +24,14 @@ export function FlagSmasher({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Flag Smasher",
-        image:
-          "https://img.game8.co/3451362/96cf907a011a3afe4cfd558da01a0c31.png/show",
+        image: "https://img.game8.co/3451362/96cf907a011a3afe4cfd558da01a0c31.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function GroundBreaker({ data }: { data: apiData }) {
+export function GroundBreaker({data}: {data: apiData}) {
   const ObjectivesCaptured =
     getGameMode(data.gamemodes, "Breakthrough")?.objectivesCaptured || 0;
   const ObjectivesCapturedOneRound = 0;
@@ -56,15 +55,14 @@ export function GroundBreaker({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Ground Breaker",
-        image:
-          "https://img.game8.co/3451386/a5d569e00f6dd30cd1f190b6eea2343c.png/show",
+        image: "https://img.game8.co/3451386/a5d569e00f6dd30cd1f190b6eea2343c.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function VintageWarrior({ data }: { data: apiData }) {
+export function VintageWarrior() {
   const classicMapsPlayed = 0;
 
   const tasks: Task[] = [
@@ -80,15 +78,14 @@ export function VintageWarrior({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Vintage Warrior",
-        image:
-          "https://img.game8.co/3451372/2ec47d0046869126272248bed7ae84a1.png/show",
+        image: "https://img.game8.co/3451372/2ec47d0046869126272248bed7ae84a1.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function CombatConnoisseur({ data }: { data: apiData }) {
+export function CombatConnoisseur({data}: {data: apiData}) {
   const breakthroughWins =
       getGameModeWins(data.gamemodes, "Breakthrough") +
       getGameModeWins(data.gamemodes, "Breakthrough Large"),
@@ -124,15 +121,14 @@ export function CombatConnoisseur({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Combat Connoisseur",
-        image:
-          "https://img.game8.co/3451384/4d81661abb8756f6ebe131ff006c9ab8.png/show",
+        image: "https://img.game8.co/3451384/4d81661abb8756f6ebe131ff006c9ab8.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function DataMiner({ data }: { data: apiData }) {
+export function DataMiner() {
   const tasks: Task[] = [
     {
       description: "5 Data Drives picked up in Hazard Zone",
@@ -146,15 +142,14 @@ export function DataMiner({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Data Miner",
-        image:
-          "https://img.game8.co/3451367/fb765d7d0b9a022971efc4775545fed9.png/show",
+        image: "https://img.game8.co/3451367/fb765d7d0b9a022971efc4775545fed9.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function FuseRunner({ data }: { data: apiData }) {
+export function FuseRunner({data}: {data: apiData}) {
   const ObjectivesArmed =
     data.gamemodes.find((mode: Gamemode) => mode.gamemodeName === "Rush")
       ?.objectivesArmed || 0;
@@ -182,19 +177,17 @@ export function FuseRunner({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Fuse Runner",
-        image:
-          "https://img.game8.co/3451383/d5f2f0222e4710e232fbfe70fc13b158.png/show",
+        image: "https://img.game8.co/3451383/d5f2f0222e4710e232fbfe70fc13b158.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function RulerOfTheZone({ data }: { data: apiData }) {
+export function RulerOfTheZone() {
   const tasks: Task[] = [
     {
-      description:
-        "1 Extraction Streak 10 Reached as any Specialist in Hazard Zone",
+      description: "1 Extraction Streak 10 Reached as any Specialist in Hazard Zone",
       completed: 0,
       required: 1,
       canCompute: false,
@@ -205,15 +198,14 @@ export function RulerOfTheZone({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Ruler of the Zone",
-        image:
-          "https://img.game8.co/3451382/21554000eac5381311c2f7eba59a1a76.png/show",
+        image: "https://img.game8.co/3451382/21554000eac5381311c2f7eba59a1a76.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function EarlyBird({ data }: { data: apiData }) {
+export function EarlyBird({data}: {data: apiData}) {
   const successfullExtractions =
     getGameModeWins(data.gamemodes, "Hazard Zone") +
     getGameModeWins(data.gamemodes, "Hazard Zone Large");
@@ -237,15 +229,14 @@ export function EarlyBird({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Early Bird",
-        image:
-          "https://img.game8.co/3451370/07edcee7659fc5c193e82390ecc75ced.png/show",
+        image: "https://img.game8.co/3451370/07edcee7659fc5c193e82390ecc75ced.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function EscapeArtist({ data }: { data: apiData }) {
+export function EscapeArtist() {
   const tasks: Task[] = [
     {
       description:
@@ -260,15 +251,14 @@ export function EscapeArtist({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Escape Artist",
-        image:
-          "https://img.game8.co/3451376/460f2e2dac43f0fe01154d7859c4e9cb.png/show",
+        image: "https://img.game8.co/3451376/460f2e2dac43f0fe01154d7859c4e9cb.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function UltimateSurvivor({ data }: { data: apiData }) {
+export function UltimateSurvivor({data}: {data: apiData}) {
   const played75Rounds = data.maps.reduce(
     (acc: number, map: apiMap) => acc + map.matches,
     0
@@ -295,7 +285,7 @@ export function UltimateSurvivor({ data }: { data: apiData }) {
   );
 }
 
-export function ArchitectOfWar({ data }: { data: apiData }) {
+export function ArchitectOfWar() {
   const tasks: Task[] = [
     {
       description: "40 Objectives defended in one round of Conquest",
@@ -315,15 +305,14 @@ export function ArchitectOfWar({ data }: { data: apiData }) {
     <TagTemplate
       tagData={{
         name: "Architect of War",
-        image:
-          "https://img.game8.co/3451363/e0f05754864fb41c13b86f0d0c3b3a84.png/show",
+        image: "https://img.game8.co/3451363/e0f05754864fb41c13b86f0d0c3b3a84.png/show",
         tasks,
       }}
     />
   );
 }
 
-export function SeasonedVet({ data }: { data: apiData }) {
+export function SeasonedVet({data}: {data: apiData}) {
   const playedMaps = data.maps.filter((map: any) => map.matches > 0).length;
 
   const tasks: Task[] = [
@@ -352,15 +341,15 @@ export function renderAll(data: apiData) {
     <>
       <FlagSmasher data={data} />
       <GroundBreaker data={data} />
-      <VintageWarrior data={data} />
+      <VintageWarrior />
       <CombatConnoisseur data={data} />
-      <DataMiner data={data} />
+      <DataMiner />
       <FuseRunner data={data} />
-      <RulerOfTheZone data={data} />
+      <RulerOfTheZone />
       <EarlyBird data={data} />
-      <EscapeArtist data={data} />
+      <EscapeArtist />
       <UltimateSurvivor data={data} />
-      <ArchitectOfWar data={data} />
+      <ArchitectOfWar />
       <SeasonedVet data={data} />
     </>
   );
