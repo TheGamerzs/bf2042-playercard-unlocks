@@ -37,7 +37,7 @@ function App() {
 
   function PlayerCardsTags() {
     if (!playerData) return null;
-    
+
     return (
       <>
         <h2 className="text-2xl">Tags</h2>
@@ -95,7 +95,7 @@ function App() {
       ) : playerData ? (
         <>
           <div className="my-8 ml-2 flex flex-row items-center">
-            <div className="h-4 w-4 rounded bg-purple-900"></div>Cannot Compute
+            <div className="h-4 w-4 rounded bg-purple-900"></div> - Cannot check the task, based on public data
           </div>
           <PlayerCardsBadges />
           <PlayerCardsTags />
