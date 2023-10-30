@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [playerData, setPlayerData] = useState(null) as any;
+  const [playerData, setPlayerData] = useState<apiData | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -36,6 +36,8 @@ function App() {
   }
 
   function PlayerCardsTags() {
+    if (!playerData) return null;
+    
     return (
       <>
         <h2 className="text-2xl">Tags</h2>
