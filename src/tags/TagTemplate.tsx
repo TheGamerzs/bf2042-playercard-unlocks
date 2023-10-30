@@ -1,6 +1,6 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 
-function TagTemplate(props: {tagData: TagData}) {
+function TagTemplate(props: { tagData: TagData }) {
   const [tagData, setTagData] = useState(null) as any;
 
   useEffect(() => {
@@ -11,20 +11,14 @@ function TagTemplate(props: {tagData: TagData}) {
     return (
       <li key={Task.description} className="list-none">
         <div className="p-4">
-          <div
-            className={`flex w-40 rounded-full ${
-              Task.canCompute ? "bg-teal-900" : "bg-purple-900"
-            }`}
-          >
+          <div className={`flex w-40 rounded-full ${Task.canCompute ? 'bg-teal-900' : 'bg-purple-900'}`}>
             <div
               className="h-2 rounded-full bg-green-300"
-              style={{width: `${(Task.completed / Task.required) * 100}%`}}
+              style={{ width: `${(Task.completed / Task.required) * 100}%` }}
             ></div>
           </div>
 
-          <p className="text-sm">
-            {`${Task.completed}/${Task.required} - ${Task.description}`}
-          </p>
+          <p className="text-sm">{`${Task.completed}/${Task.required} - ${Task.description}`}</p>
         </div>
       </li>
     );

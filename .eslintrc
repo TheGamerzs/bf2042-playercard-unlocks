@@ -4,13 +4,10 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:tailwindcss/recommended",
-    "plugin:prettier/recommended"
   ],
   "plugins": [
     "react",
-    "react-hooks",
-    "tailwindcss",
-    "prettier"
+    "react-hooks"
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -24,13 +21,13 @@
     "es2020": true
   },
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 120
-      }
-    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   "overrides": [
     {

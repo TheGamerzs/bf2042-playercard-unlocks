@@ -1,22 +1,21 @@
-import {FormEvent, useState} from "react";
-import "./App.css";
+import { FormEvent, useState } from 'react';
+import './App.css';
 
-import * as mapsModes from "./tags/maps&modes";
+import * as mapsModes from './tags/maps&modes';
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [platform, setPlatform] = useState("pc");
+  const [username, setUsername] = useState('');
+  const [platform, setPlatform] = useState('pc');
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const [playerData, setPlayerData] = useState(null) as any;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!username) return;
-    const baseURL =
-      "https://api.gametools.network/bf2042/stats/?raw=false&format_values=true";
+    const baseURL = 'https://api.gametools.network/bf2042/stats/?raw=false&format_values=true';
     const url = `${baseURL}&name=${username}&platform=${platform}&skip_battlelog=true`;
 
     setLoading(true);
@@ -56,7 +55,7 @@ function App() {
 
   return (
     <div className="bg-black p-4 text-white">
-      <h1 className="text-center text-4xl font-bold" style={{fontFamily: "Inter"}}>
+      <h1 className="text-center text-4xl font-bold" style={{ fontFamily: 'Inter' }}>
         BF2042 Player Card Tracker
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col">
