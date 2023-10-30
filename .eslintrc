@@ -8,7 +8,9 @@
   ],
   "plugins": [
     "react",
-    "react-hooks"
+    "react-hooks",
+    "tailwindcss",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -26,9 +28,9 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "printWidth": 120
       }
-    ]
+    ],
   },
   "overrides": [
     {
