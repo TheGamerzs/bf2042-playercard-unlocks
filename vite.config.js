@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import eslintPlugin from "vite-plugin-eslint";
 
 import { loadEnv } from "vite";
 import dotenv from "dotenv";
@@ -16,7 +16,14 @@ export default ({ command, mode }) => {
     build: {
       outDir: "build",
     },
-    plugins: [react()],
+    plugins: [
+      react(),
+      eslintPlugin({
+        cache: false,
+        include: ["./src/**/*.js", "./src/**/*.jsx"],
+        exclude: [],
+      }),
+    ],
     define: {
       "import.meta.env.VITE_VERCEL_ANALYTICS_ID": JSON.stringify(
         env.VERCEL_ANALYTICS_ID
